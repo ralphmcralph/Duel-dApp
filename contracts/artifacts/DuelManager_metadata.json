@@ -1,0 +1,348 @@
+{
+	"compiler": {
+		"version": "0.8.24+commit.e11b9ed9"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "arbiter_",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "resolver_",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "DuelAlreadyResolved",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidPlayer",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotEnoughETH",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "duelId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "player2",
+						"type": "address"
+					}
+				],
+				"name": "DuelAccepted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "duelId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "player1",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "player2",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "betAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "DuelCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "duelId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "winner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "prize",
+						"type": "uint256"
+					}
+				],
+				"name": "DuelResolved",
+				"type": "event"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"inputs": [],
+				"name": "REVEAL_TIMEOUT",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "duelId",
+						"type": "uint256"
+					}
+				],
+				"name": "acceptDuel",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "arbiter",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "duelId",
+						"type": "uint256"
+					}
+				],
+				"name": "claimVictoryIfTimeout",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "opponent",
+						"type": "address"
+					}
+				],
+				"name": "createDuel",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "duelId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "duelId",
+						"type": "uint256"
+					}
+				],
+				"name": "declareWinner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "duelCounter",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "duels",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "player1",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "player2",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "betAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "player1Paid",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "player2Paid",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "completed",
+						"type": "bool"
+					},
+					{
+						"internalType": "address",
+						"name": "winner",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "resolver",
+				"outputs": [
+					{
+						"internalType": "contract IDuelResolver",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newResolver",
+						"type": "address"
+					}
+				],
+				"name": "setResolver",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/DuelManager.sol": "DuelManager"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/DuelManager.sol": {
+			"keccak256": "0x3b41ee25c11ad4a703ec207ec96fb7dff465e5dade67675797dab16f886c8965",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://3263569ab3d7021bb0a3f15f79366cca1d66c37e858693b55c77798315137c44",
+				"dweb:/ipfs/QmXGxsgF5vUTcwE9zuq7JeczvtcvUNvs5sPCYvk5tiqR8L"
+			]
+		},
+		"contracts/interfaces/IDuelResolver.sol": {
+			"keccak256": "0xa3757afae2371c02f212883b4826e3067e4c3dc8d0acdd5e0ff70f37db24ce76",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://f4ff386add22b7bb2e1e34688d6f6460f1636338bbee170b438b0b30395f5c6d",
+				"dweb:/ipfs/QmUSmFwhUFahVrNQtyP3t6dU9HKyC1mECutwhJSKodYdXZ"
+			]
+		},
+		"contracts/utils/Errors.sol": {
+			"keccak256": "0xafc46471c8cfe3a17ae8cd73e5abf3acd9eb6fe56c11386274f614d3a7224ccd",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://67a652a2401ee5791035088f3c121a7685e7ec47c05076a5ba9ecac04be7d00c",
+				"dweb:/ipfs/Qma9sTnQPevy7WGKUuorDcUA1P3nCmbhCrUGkREDBWRi3q"
+			]
+		}
+	},
+	"version": 1
+}
