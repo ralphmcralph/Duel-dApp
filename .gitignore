@@ -1,5 +1,11 @@
-artifacts/
-deps/
+# Ignore all Remix compiler artifacts
+**/artifacts/
+**/artifacts/**
+
+# Ignore Remix plugin state
 states/
+deps/
+
+# Optional: Ignore temp/debug files
 *.dbg.json
 *.tsbuildinfo
