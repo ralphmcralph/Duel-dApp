@@ -1,2 +1,5 @@
-.deps
-.states
+artifacts/
+deps/
+states/
+*.dbg.json
+*.tsbuildinfo
